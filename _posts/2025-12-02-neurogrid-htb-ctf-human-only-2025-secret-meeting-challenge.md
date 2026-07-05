@@ -76,17 +76,14 @@ I spent hours on this question, reading multiple write-ups and trying to reprodu
 
 First I recommend to read these before solving:
 
-* An article on decrypting Zoom encrypted chat databases and how DPAPI + app keys are used to protect local SQLite data.
-* https://infosecwriteups.com/decrypting-zoom-team-chat-forensic-analysis-of-encrypted-chat-databases-394d5c471e60
-* A GitHub write-up on extracting the Zoom Personal Meeting ID (PMI) from a forensic disk image, which shows where IDs live and how to carve them out.
-* extract_zoom_PMI_from_Forensic_disk_image/Zoom_PMI_extraction.png at main ·…
-* How to extract the zoom Personal Meeting ID from a Forensic disk image …
-
-github.com
+* [An article on decrypting Zoom encrypted chat databases and how DPAPI + app keys are used to protect local SQLite data.](https://infosecwriteups.com/decrypting-zoom-team-chat-forensic-analysis-of-encrypted-chat-databases-394d5c471e60)
+* [A GitHub write-up on extracting the Zoom Personal Meeting ID (PMI) from a forensic disk image, which shows where IDs live and how to carve them out.](https://github.com/danjethh/extract_zoom_PMI_from_Forensic_disk_image/blob/main/Zoom_PMI_extraction.png?source=post_page-----9b36f79e5158---------------------------------------)
+* [How to extract the zoom Personal Meeting ID from a Forensic disk image](https://github.com/danjethh/extract_zoom_PMI_from_Forensic_disk_image/blob/main/Zoom_PMI_extraction.png?source=post_page-----9b36f79e5158---------------------------------------)
 
 And I remembered there was a challenge on HTB named crewcrow this was dealing with zoom database decryption which we need in this challenge too here it is a write-up for it
 
-* https://medium.com/@chaoskist/hackthebox-sherlocks-write-up-crewcrow-zoom-database-decryption-f2da9d88bb46
+* [https://medium.com/@chaoskist/hackthebox-sherlocks-write-up-crewcrow-zoom-database-decryption-f2da9d88bb46](https://medium.com/@chaoskist/hackthebox-sherlocks-write-up-crewcrow-zoom-database-decryption-f2da9d88bb46)
+* [Eljo0ker’s-Writeup](https://medium.com/@ELJoOker/htb-university-ctf-2024-binary-badlands-forensics-challenges-5b355fd258da)
 
 We should follow this:
 
