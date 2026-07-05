@@ -20,6 +20,8 @@ Description:
 
 Here we are given disk Image and Windows memory dump both will help us during our solving steps
 
+![](../assets/img/secret-meeting/01-cover.png)
+
 First we mounted the image using FTK Imager and then took a look at it in Autopsy.
 
 ## Q1 → When was the private communications application installed? Provide the exact installation timestamp in UTC (YYYY-MM-DD HH:MM:SS).
@@ -44,7 +46,7 @@ I searched the memory dump using `strings` and found clear evidence that he used
 
 `strings memory.raw | grep -i "sdelete"`
 
-![](../assets/img/secret-meeting/01-cover.png)
+![](../assets/img/secret-meeting/02-sdelete.png)
 
 so the answer is :
 
@@ -56,15 +58,15 @@ I thought We can get it from
 
 `D:/System Volume Information`
 
-![](../assets/img/secret-meeting/02-sdelete.png)
+![](../assets/img/secret-meeting/03-system-volume.png)
 
 From here I initially got a creation time of 2025–03–06 17:17:32 UTC. I later realized this was confusing, so I parsed the $MFT
 
-![](../assets/img/secret-meeting/03-system-volume.png)
+![](../assets/img/secret-meeting/04-mft.png)
 
 That was the same to be more precise I tried to use vshadowinfo command to be more definite
 
-![](../assets/img/secret-meeting/04-mft.png)
+![](../assets/img/secret-meeting/05-vshadowinfo.png)
 
 > 2025–03–06 17:17:33
 >
@@ -87,13 +89,13 @@ And I remembered there was a challenge on HTB named crewcrow this was dealing wi
 
 We should follow this:
 
-![](../assets/img/secret-meeting/05-vshadowinfo.png)
+![](../assets/img/secret-meeting/06-follow-this.png)
 
 The surprising thing was that `zoom.us.ini` and the Zoom database had been deleted, so I had to recover them first. I tried several recovery tools without success, so I finally mounted the image’s Volume Shadow Copy using `vshadowmount`.
 
 and here we got the two files we need
 
-![](../assets/img/secret-meeting/06-follow-this.png)
+![](../assets/img/secret-meeting/07-two-files.png)
 
 I copied them to my local working directory and took a closer look at them:
 
@@ -120,7 +122,7 @@ This is why we were given a memory dump: we don’t have to rely only on disk ar
 
 Using Volatility didn’t help me at all in extracting the minidump, so I moved on to MemProcFS — but there was an issue: by default it does not extract the `lsass.exe` process for security reasons.
 
-So I kept searching untill I found this helpful write-up for Eljo0ker using this tool and modifying it to be used in a proper way I recommend you check it → `Eljo0ker’s-Writeup`
+So I kept searching untill I found this helpful write-up for Eljo0ker using this tool and modifying it to be used in a proper way I recommend you check it → [Eljo0ker’s-Writeup](https://medium.com/@ELJoOker/htb-university-ctf-2024-binary-badlands-forensics-challenges-5b355fd258da)
 
 ![](../assets/img/secret-meeting/09-memprocfs.png)
 
