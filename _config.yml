@@ -16,20 +16,20 @@ timezone:
 
 title: Ab0L3TA # the main title
 
-tagline: DFIR Labs, Technical Write-Ups # it will display as the subtitle
+tagline: DFIR labs, technical write-ups, and lab notes # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Digital forensics , Labs write-ups and Some Technical Notes
+  Digital forensics write-ups, CTF notes, and technical lab reports.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://mhm0ud-ab0l3ta.github.io"
 
 github:
-  username: github_username # change to your GitHub username
+  username: Mhm0ud-Ab0L3ta # change to your GitHub username
 
 twitter:
-  username: twitter_username # change to your Twitter username
+  username: MAb0EL3TA # change to your Twitter username
 
 social:
   # Change to your full name.
@@ -39,11 +39,10 @@ social:
   fediverse_handle: # fill in your fediverse handle. E.g. "@username@domain.com"
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
+    - https://medium.com/@MAb0EL3TA
     - https://github.com/Mhm0ud-Ab0l3ta # change to your GitHub homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    - www.linkedin.com/in/mahmoud-mostafa-b48a48274
+    - https://www.linkedin.com/in/mahmoud-mostafa-b48a48274/
+    - https://twitter.com/MAb0EL3TA
 
 # Site Verification Settings
 webmaster_verifications:

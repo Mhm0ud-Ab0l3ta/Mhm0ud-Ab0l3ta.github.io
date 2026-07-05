@@ -4,5 +4,13 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+This site mirrors selected DFIR and CTF write-ups from my Medium archive.
+
+Primary archive:
+
+- [Medium profile](https://medium.com/@MAb0EL3TA)
+
+Elsewhere:
+
+- [GitHub](https://github.com/Mhm0ud-Ab0L3ta)
+- [LinkedIn](https://www.linkedin.com/in/mahmoud-mostafa-b48a48274/)

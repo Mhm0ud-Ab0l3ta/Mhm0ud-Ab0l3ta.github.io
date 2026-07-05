@@ -3,6 +3,10 @@
 - type: github
   icon: "fab fa-github"
 
+- type: medium
+  icon: "fab fa-medium"
+  url: "https://medium.com/@MAb0EL3TA"
+
 - type: twitter
   icon: "fa-brands fa-x-twitter"
 
