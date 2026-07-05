@@ -4,6 +4,9 @@ date: 2025-12-02
 categories: [dfir, ctf]
 tags: [dfir, zoom, htb, ctf, forensics]
 description: "Secret Meeting zoom forensics challenge write-up."
+image:
+  path: /assets/img/secret-meeting/secret-meeting-cover.png
+  alt: "Secret Meeting Zoom Forensics Challenge Write-up"
 toc: true
 ---
 
@@ -19,8 +22,6 @@ Description:
 > To reveal the truth, Shiori must coax the past from its own reflection, recover what was meant to vanish, decrypt what was meant to remain unheard, and expose the voice behind the silence.
 
 Here we are given disk Image and Windows memory dump both will help us during our solving steps
-
-![](../assets/img/secret-meeting/01-cover.png)
 
 First we mounted the image using FTK Imager and then took a look at it in Autopsy.
 
