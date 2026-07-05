@@ -44,7 +44,7 @@ I searched the memory dump using `strings` and found clear evidence that he used
 
 `strings memory.raw | grep -i "sdelete"`
 
-![](../assets/img/secret-meeting/1*AbeesIWrN8omlcnKIfQtMQ.png)
+![](../assets/img/secret-meeting/01-cover.png)
 
 so the answer is :
 
@@ -56,15 +56,15 @@ I thought We can get it from
 
 `D:/System Volume Information`
 
-![](../assets/img/secret-meeting/1*VfkYx319APqtU2ZX0BvulA.png)
+![](../assets/img/secret-meeting/02-sdelete.png)
 
 From here I initially got a creation time of 2025–03–06 17:17:32 UTC. I later realized this was confusing, so I parsed the $MFT
 
-![](../assets/img/secret-meeting/1*UobNtiEmbboglXbi0TOjMw.png)
+![](../assets/img/secret-meeting/03-system-volume.png)
 
 That was the same to be more precise I tried to use vshadowinfo command to be more definite
 
-![](../assets/img/secret-meeting/1*_iwqQFlKouwMopf0T5beyw.png)
+![](../assets/img/secret-meeting/04-mft.png)
 
 > 2025–03–06 17:17:33
 >
@@ -90,19 +90,19 @@ And I remembered there was a challenge on HTB named crewcrow this was dealing wi
 
 We should follow this:
 
-![](../assets/img/secret-meeting/1*Aa_bFkSbwhH9GGPDp2_D-Q.png)
+![](../assets/img/secret-meeting/05-vshadowinfo.png)
 
 The surprising thing was that `zoom.us.ini` and the Zoom database had been deleted, so I had to recover them first. I tried several recovery tools without success, so I finally mounted the image’s Volume Shadow Copy using `vshadowmount`.
 
 and here we got the two files we need
 
-![](../assets/img/secret-meeting/1*I2aV7QX1OwWkfUTI0d9EiQ.png)
+![](../assets/img/secret-meeting/06-follow-this.png)
 
 I copied them to my local working directory and took a closer look at them:
 
-![](../assets/img/secret-meeting/1*6wdwKxVZ2Rz3MJtID-w-Dw.png)
+![](../assets/img/secret-meeting/07-two-files.png)
 
-![](../assets/img/secret-meeting/1*ShMl09JtWGlmAgvjUJG99w.png)
+![](../assets/img/secret-meeting/08-closer-look.png)
 
 `win_osencrypt_key`
 
@@ -125,7 +125,7 @@ Using Volatility didn’t help me at all in extracting the minidump, so I moved 
 
 So I kept searching untill I found this helpful write-up for Eljo0ker using this tool and modifying it to be used in a proper way I recommend you check it → `Eljo0ker’s-Writeup`
 
-![](../assets/img/secret-meeting/1*hXOkmhpQgsWqaOZUzP5xAA.png)
+![](../assets/img/secret-meeting/09-memprocfs.png)
 
 `.\MemProcFS.exe -device "C:\Users\mm370\Downloads\forensics_secret_meeting\memory.raw" -forensic 1`
 
@@ -135,7 +135,7 @@ I copied minidump.dmp file to my analysis folder as `lsass.dmp` and then switche
 
 Here we got the DPAPI master keys what we need in the next step to decrypt the `win_osencrypt_key` blob from `Zoom.us.ini`, and ultimately to unlock `zoomus.enc.db` and recover the meeting ID.
 
-![](../assets/img/secret-meeting/1*WCCv0xlCDuwY-Cge3n-t8g.png)
+![](../assets/img/secret-meeting/10-dpapi-keys.png)
 
 Now we need to turn the text value in `Zoom.us.ini` into a raw DPAPI blob that Mimikatz can decrypt. So in the powershell:
 
@@ -153,7 +153,7 @@ Now we have a DPAPI blob file located at:
 
 Now that I had the DPAPI blob on disk, the next step was to decrypt it using the user’s DPAPI master key from LSASS.
 
-![](../assets/img/secret-meeting/1*ueIkc1paw2yPAbjINjHr9Q.png)
+![](../assets/img/secret-meeting/11-mimikatz.png)
 
 Mimikatz successfully parsed the DPAPI structure (AES-256 + SHA-512) and, at the bottom of the output, exposed the decrypted payload in hex:
 
@@ -174,11 +174,11 @@ The resulting `zoom_secret_key.bin` is the AES key required to decrypt `zoomus.e
 
 I tried working with SQLCipher from the terminal, but I kept getting errors. After revisiting the Crewcrow write-up, I tried using DB Browser for SQLCipher instead, and that worked.
 
-![](../assets/img/secret-meeting/1*D76eygY7nR-GE7uxv85-_g.png)
+![](../assets/img/secret-meeting/12-sqlcipher.png)
 
 The meeting ID should be stored under `zoom_kv`.
 
-![](../assets/img/secret-meeting/1*lZ4twOxFlvZSCpU5K-rUIA.png)
+![](../assets/img/secret-meeting/13-zoom-kv.png)
 
 We can see we’re still in an “encryption loop” — this value itself is encrypted and needs to be decrypted as well.
 
@@ -236,9 +236,9 @@ So by checking ActivitiesCache found in
 
 `D:\Users\a1l4m\AppData\Local\ConnectedDevicesPlatform\L.a1l4m\ActivitiesCache.db`
 
-![](../assets/img/secret-meeting/1*tcJCGhGXtdtN1zqG6gYPBg.png)
+![](../assets/img/secret-meeting/14-activities-1.png)
 
-![](../assets/img/secret-meeting/1*dzIuB9R2jVgQNO-GcJRyWQ.png)
+![](../assets/img/secret-meeting/15-activities-2.png)
 
 So the realistic answer is 278 and yes, that’s the correct one..
 
