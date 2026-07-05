@@ -85,7 +85,6 @@ First I recommend to read these before solving:
 And I remembered there was a challenge on HTB named crewcrow this was dealing with zoom database decryption which we need in this challenge too here it is a write-up for it
 
 * [https://medium.com/@chaoskist/hackthebox-sherlocks-write-up-crewcrow-zoom-database-decryption-f2da9d88bb46](https://medium.com/@chaoskist/hackthebox-sherlocks-write-up-crewcrow-zoom-database-decryption-f2da9d88bb46)
-* [Eljo0ker’s-Writeup](https://medium.com/@ELJoOker/htb-university-ctf-2024-binary-badlands-forensics-challenges-5b355fd258da)
 
 We should follow this:
 
