@@ -1,5 +1,6 @@
 ---
-layout: challenge-authoring
+layout: home
+authoring_only: true
 icon: fas fa-flask
 order: 1
 title: Challenge Authoring
