@@ -1,10 +1,31 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const toc = document.getElementById('toc');
+    const content = document.querySelector('main article > .content');
+    let selectedHeading;
+    let settleTimer;
 
-    if (!toc) {
+    if (!toc || !content) {
       return;
     }
+
+    const alignHeading = () => {
+      if (!selectedHeading) {
+        return;
+      }
+
+      const top = window.scrollY + selectedHeading.getBoundingClientRect().top - 32;
+      window.scrollTo({ top, behavior: 'auto' });
+    };
+
+    const keepHeadingAligned = (heading) => {
+      selectedHeading = heading;
+      requestAnimationFrame(alignHeading);
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        selectedHeading = undefined;
+      }, 5000);
+    };
 
     toc.addEventListener('click', (event) => {
       const link = event.target.closest('a[href^="#"]');
@@ -19,10 +40,13 @@
         return;
       }
 
-      requestAnimationFrame(() => {
-        const top = window.scrollY + heading.getBoundingClientRect().top - 32;
-        window.scrollTo({ top, behavior: 'auto' });
-      });
+      keepHeadingAligned(heading);
     });
+
+    content.addEventListener('load', (event) => {
+      if (selectedHeading && event.target instanceof HTMLImageElement) {
+        requestAnimationFrame(alignHeading);
+      }
+    }, true);
   });
 </script>
