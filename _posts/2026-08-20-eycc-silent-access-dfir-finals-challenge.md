@@ -4,6 +4,9 @@ date: 2026-08-20
 categories: [challenge-authoring, dfir, ctf]
 tags: [challenge-authoring, dfir, ctf, eycc, memory-forensics]
 description: "Windows memory forensics challenge author write-up for EYCC CTF Finals."
+image:
+  path: https://cdn-images-1.medium.com/max/1024/1*J3FSVatkytH_ZCsgbxAstw.png
+  alt: "EYCC Silent Access DFIR Finals Challenge"
 toc: true
 ---
 

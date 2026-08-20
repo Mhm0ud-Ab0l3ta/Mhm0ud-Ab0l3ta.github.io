@@ -4,6 +4,9 @@ date: 2026-08-20
 categories: [challenge-authoring, dfir, ctf]
 tags: [challenge-authoring, dfir, ctf, eycc, memory-forensics]
 description: "Author write-up for the two DFIR challenges I created for EYCC CTF."
+image:
+  path: https://cdn-images-1.medium.com/max/1024/1*J3FSVatkytH_ZCsgbxAstw.png
+  alt: "EYCC Trust Issue and Silent Access DFIR Challenges"
 toc: true
 ---
 
