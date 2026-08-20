@@ -5,6 +5,8 @@ order: 0
 
 This page points to the write-ups mirrored on this site and the canonical Medium archive.
 
+For challenges I designed myself, see [Challenge Authoring]({{ '/challenge-authoring/' | relative_url }}).
+
 - [Medium profile](https://medium.com/@MAb0EL3TA)
 
 Recent write-ups:
