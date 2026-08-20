@@ -2,8 +2,7 @@
 title: "EYCC - Silent Access DFIR Finals Challenge"
 date: 2026-08-20
 categories: [challenge-authoring, dfir, ctf]
-tags: [challenge-authoring, dfir, ctf, eycc, memory-forensics]
-description: "Windows memory forensics challenge author write-up for EYCC CTF Finals."
+description: "This one is a Windows Memory Forensics challenge that I intentionally made it easier than the Quals challenge. The main goal was to introduce participants to Volatility 2 & 3 and helping them understand how different plugins can be used to extract useful evidence from a memory dump."
 image:
   path: https://cdn-images-1.medium.com/max/1024/1*J3FSVatkytH_ZCsgbxAstw.png
   alt: "EYCC Silent Access DFIR Finals Challenge"
