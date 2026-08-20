@@ -1,0 +1,28 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toc = document.getElementById('toc');
+
+    if (!toc) {
+      return;
+    }
+
+    toc.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href^="#"]');
+
+      if (!link) {
+        return;
+      }
+
+      const heading = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+
+      if (!heading) {
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        const top = window.scrollY + heading.getBoundingClientRect().top - 32;
+        window.scrollTo({ top, behavior: 'auto' });
+      });
+    });
+  });
+</script>
