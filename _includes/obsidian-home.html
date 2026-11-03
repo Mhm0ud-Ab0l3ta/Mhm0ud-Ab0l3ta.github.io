@@ -4,8 +4,11 @@
     const input = document.getElementById('console-command');
     const output = document.getElementById('console-output');
     const statusLine = document.querySelector('[data-terminal-text]');
+    const searchInput = document.getElementById('search-input');
 
     if (!terminal || !input || !output) return;
+
+    if (searchInput) searchInput.placeholder = 'Search case files, writeups, tags…';
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -54,20 +54,59 @@ script_includes:
 {% unless page.authoring_only %}
   <section class="spider-hero obsidian-hero" aria-labelledby="operator-title">
     <div class="gothic-architecture" aria-hidden="true">
-      <svg viewBox="0 0 1080 620" preserveAspectRatio="xMidYMid slice">
-        <g class="cathedral-lines">
-          <path d="M640 610V245C640 112 742 24 856 24s216 88 216 221v365"/>
-          <path d="M692 610V258c0-101 73-174 164-174s164 73 164 174v352"/>
-          <path d="M748 610V270c0-66 48-118 108-118s108 52 108 118v340"/>
-          <path d="M856 26v584M640 292h432M692 292h328M748 292h216"/>
-          <path d="M640 428h432M692 428h328M748 428h216"/>
-          <path d="M768 152 856 36l88 116M712 258l144-174 144 174"/>
-          <circle cx="856" cy="292" r="45"/>
-          <path d="M856 247v90M811 292h90M824 260l64 64M888 260l-64 64"/>
+      <svg viewBox="0 0 1320 520" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="roseGlow" cx="50%" cy="48%" r="58%">
+            <stop offset="0" stop-color="#bd3157" stop-opacity=".32"/>
+            <stop offset=".52" stop-color="#771a39" stop-opacity=".13"/>
+            <stop offset="1" stop-color="#08090d" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="lancetGlow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#c53c61" stop-opacity=".08"/>
+            <stop offset=".55" stop-color="#a31f49" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#4d1029" stop-opacity=".04"/>
+          </linearGradient>
+        </defs>
+
+        <ellipse class="window-aura" cx="672" cy="255" rx="238" ry="286" fill="url(#roseGlow)"/>
+
+        <g class="cathedral-shell">
+          <path d="M525 487V224C525 112 591 37 672 23c81 14 147 89 147 201v263"/>
+          <path d="M555 487V230c0-88 49-149 117-168 68 19 117 80 117 168v257"/>
+          <path d="M585 487V235c0-63 35-111 87-134 52 23 87 71 87 134v252"/>
+          <path d="M525 269h294M555 269h234M585 269h174M525 390h294M555 390h234"/>
+          <path d="M672 23v464M525 224l147-201 147 201M555 230 672 62l117 168M585 235l87-134 87 134"/>
         </g>
-        <g class="stained-glass">
-          <path d="M856 84 920 164 856 236 792 164Z"/>
-          <path d="m856 252 33 40-33 40-33-40Z"/>
+
+        <g class="lancet-glass">
+          <path d="M603 252v-24c0-48 25-86 58-105v129Z"/>
+          <path d="M683 252V123c33 19 58 57 58 105v24Z"/>
+          <path d="M603 282h58v91h-58zM683 282h58v91h-58z"/>
+          <path d="M603 403h58v84h-58zM683 403h58v84h-58z"/>
+        </g>
+
+        <g class="rose-window">
+          <circle cx="672" cy="271" r="58"/>
+          <circle cx="672" cy="271" r="19"/>
+          <path d="M672 213v116M614 271h116M631 230l82 82M713 230l-82 82"/>
+          <path d="m672 213 14 39 44 19-44 18-14 40-15-40-43-18 43-19Z"/>
+        </g>
+
+        <g class="forensic-diagram">
+          <circle cx="510" cy="342" r="98"/>
+          <circle cx="510" cy="342" r="57"/>
+          <circle cx="510" cy="342" r="8"/>
+          <path d="M390 342h240M510 222v240M426 258l168 168M594 258 426 426"/>
+          <path d="M510 244a98 98 0 0 1 86 51M608 342a98 98 0 0 1-37 77"/>
+          <circle cx="861" cy="162" r="72"/>
+          <circle cx="861" cy="162" r="28"/>
+          <path d="M773 162h176M861 74v176"/>
+        </g>
+
+        <g class="architectural-detail">
+          <path d="M15 474h310M995 58h310M1034 449h271"/>
+          <path d="M72 0v108M1240 360v160M295 440v80"/>
+          <path d="M24 34h122M1175 490h130"/>
         </g>
       </svg>
     </div>
@@ -82,7 +121,7 @@ script_includes:
       <p class="hero-headline">Tracing artifacts. Reconstructing truth.</p>
       <p class="hero-lede">DFIR case files, technical write-ups, and investigation notes on digital evidence, incident response, and threat analysis.</p>
       <div class="hero-actions">
-        <a class="hero-action primary" href="#case-files">Explore Case Files <span aria-hidden="true">↘</span></a>
+        <a class="hero-action primary" href="#case-files">Explore Case Files <span aria-hidden="true">→</span></a>
         <a class="hero-action secondary" href="{{ '/about/' | relative_url }}">About the Operator</a>
       </div>
       <div class="signal-strip" aria-label="Areas of focus">
@@ -107,8 +146,8 @@ script_includes:
         <p class="console-command"><span class="prompt-mark">└─$</span> help</p>
         <p class="console-result console-help">whoami · ls · pwd · medium · github · clear</p>
         <div class="console-command-row">
-          <label for="console-command"><span class="prompt-mark">└─$</span><span class="visually-hidden">Terminal command</span></label>
-          <input id="console-command" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="type a command" aria-describedby="console-hint">
+          <label for="console-command" aria-label="Terminal prompt"><span class="prompt-mark">└─$</span></label>
+          <input id="console-command" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="type a command" aria-label="Terminal command" aria-describedby="console-hint">
         </div>
         <p id="console-hint" class="console-hint">Press Enter to run a command.</p>
         <div id="console-output" class="console-output" aria-live="polite"></div>
@@ -186,15 +225,15 @@ script_includes:
             <h3 class="card-title">{{ post.title }}</h3>
             <p class="case-excerpt">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 175 }}</p>
 
-            {% if post.tags.size > 0 %}
-              <div class="case-tags" aria-label="Tags">
-                {% for tag in post.tags limit: 3 %}<span>{{ tag }}</span>{% endfor %}
-              </div>
-            {% endif %}
-
             <div class="case-card-footer">
               <span><i class="far fa-calendar fa-fw" aria-hidden="true"></i> {% include datetime.html date=post.date lang=lang %}</span>
-              <span class="case-open" aria-hidden="true">OPEN FILE ↗</span>
+              {% if post.tags.size > 0 %}
+                <span class="case-tags" aria-label="Tags">
+                  {% for tag in post.tags limit: 2 %}<span>{{ tag }}</span>{% endfor %}
+                </span>
+              {% else %}
+                <span class="case-open" aria-hidden="true">OPEN FILE ↗</span>
+              {% endif %}
             </div>
           </div>
         </a>
