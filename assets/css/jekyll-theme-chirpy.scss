@@ -158,13 +158,30 @@ body:has(.spider-hero) #panel-wrapper {
 
 .spider-identity h1 {
   margin: 0;
-  color: #f3f7fb;
+  color: transparent;
+  background: linear-gradient(
+    110deg,
+    #edf3f8 0%,
+    #edf3f8 39%,
+    #ffffff 44%,
+    #72e4ff 47%,
+    #ffffff 50%,
+    #edf3f8 55%,
+    #edf3f8 100%
+  );
+  background-size: 260% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: clamp(3.2rem, 6vw, 5.5rem);
   font-weight: 850;
   line-height: 0.92;
   letter-spacing: -0.08em;
-  text-shadow: 3px 0 rgba(239, 35, 77, 0.5), -2px 0 rgba(72, 216, 255, 0.42);
+  text-shadow:
+    3px 0 rgba(239, 35, 77, 0.6),
+    -2px 0 rgba(72, 216, 255, 0.55),
+    0 0 14px rgba(72, 216, 255, 0.12);
+  animation: operator-glint 5.5s ease-in-out infinite;
 }
 
 .hero-cursor { color: var(--spider-red); animation: cursor-blink 1s steps(1) infinite; }
@@ -325,6 +342,10 @@ body:has(.spider-hero) #panel-wrapper {
 @keyframes scanline { to { transform: translateY(780%); } }
 @keyframes cursor-blink { 50% { opacity: 0; } }
 @keyframes status-pulse { 50% { opacity: 0.45; box-shadow: 0 0 3px var(--spider-red); } }
+@keyframes operator-glint {
+  0%, 62%, 100% { background-position: 100% 50%; }
+  78% { background-position: 0% 50%; }
+}
 @media (max-width: 991px) {
   .spider-hero { grid-template-columns: 1fr; padding-top: 4.7rem; }
   .kali-console { transform: none; }
