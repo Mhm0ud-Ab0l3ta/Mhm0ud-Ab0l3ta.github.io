@@ -58,14 +58,8 @@ body:has(.spider-hero) #panel-wrapper {
 }
 
 #sidebar .site-title a {
-  color: #f1f4f5;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  text-shadow:
-    0 0 4px rgba(255, 255, 255, 0.9),
-    0 0 13px rgba(215, 235, 242, 0.55),
-    3px 2px 0 #010205;
-  animation: venom-name-pulse 3.8s ease-in-out infinite;
 }
 
 #sidebar .site-subtitle {
@@ -163,54 +157,14 @@ body:has(.spider-hero) #panel-wrapper {
 }
 
 .spider-identity h1 {
-  position: relative;
-  display: inline-block;
-  isolation: isolate;
   margin: 0;
+  color: #f3f7fb;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: clamp(3.2rem, 6vw, 5.5rem);
   font-weight: 850;
   line-height: 0.92;
   letter-spacing: -0.08em;
-}
-
-.venom-title {
-  color: transparent;
-  background: linear-gradient(115deg, #ffffff 5%, #aeb8be 32%, #ffffff 49%, #758189 66%, #f8fbfc 88%);
-  background-size: 220% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.38);
-  filter: drop-shadow(0 0 8px rgba(230, 246, 255, 0.4)) drop-shadow(3px 4px 0 #000);
-  animation: venom-sheen 4.6s ease-in-out infinite;
-}
-
-.venom-title::before {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  color: #010205;
-  -webkit-text-stroke: 3px #010205;
-  text-shadow: 0 0 18px rgba(226, 247, 255, 0.42);
-  transform: translate(3px, 5px) skewX(-2deg);
-  clip-path: polygon(0 64%, 100% 52%, 100% 100%, 0 100%);
-  animation: venom-shift 2.8s ease-in-out infinite;
-}
-
-.venom-title::after {
-  content: '';
-  position: absolute;
-  left: 8%;
-  bottom: -0.15em;
-  z-index: -2;
-  width: 82%;
-  height: 0.11em;
-  border-radius: 50%;
-  background: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  filter: drop-shadow(0 0 4px rgba(235, 249, 255, 0.36));
-  transform-origin: center;
-  animation: venom-tendrils 3.2s ease-in-out infinite;
+  text-shadow: 3px 0 rgba(239, 35, 77, 0.5), -2px 0 rgba(72, 216, 255, 0.42);
 }
 
 .hero-cursor { color: var(--spider-red); animation: cursor-blink 1s steps(1) infinite; }
@@ -371,26 +325,6 @@ body:has(.spider-hero) #panel-wrapper {
 @keyframes scanline { to { transform: translateY(780%); } }
 @keyframes cursor-blink { 50% { opacity: 0; } }
 @keyframes status-pulse { 50% { opacity: 0.45; box-shadow: 0 0 3px var(--spider-red); } }
-@keyframes venom-sheen {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes venom-shift {
-  0%, 100% { transform: translate(3px, 5px) skewX(-2deg); }
-  50% { transform: translate(2px, 7px) skewX(1deg); }
-}
-
-@keyframes venom-tendrils {
-  0%, 100% { transform: scaleX(0.92) scaleY(0.8); opacity: 0.72; }
-  50% { transform: scaleX(1.03) scaleY(1.2); opacity: 1; }
-}
-
-@keyframes venom-name-pulse {
-  0%, 100% { filter: brightness(0.86); }
-  50% { filter: brightness(1.28); }
-}
-
 @media (max-width: 991px) {
   .spider-hero { grid-template-columns: 1fr; padding-top: 4.7rem; }
   .kali-console { transform: none; }
