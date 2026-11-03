@@ -1,0 +1,76 @@
+<script>
+  (() => {
+    const terminal = document.getElementById('operator-console');
+    const input = document.getElementById('console-command');
+    const output = document.getElementById('console-output');
+    const statusLine = document.querySelector('[data-terminal-text]');
+
+    if (!terminal || !input || !output) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion && statusLine) {
+      const text = statusLine.dataset.terminalText;
+      statusLine.textContent = '';
+      let index = 0;
+
+      const typeNext = () => {
+        statusLine.textContent = text.slice(0, index++);
+        if (index <= text.length) window.setTimeout(typeNext, 34);
+      };
+
+      window.setTimeout(typeNext, 420);
+    }
+
+    const commands = {
+      help: 'Available: whoami · cat focus.txt · ./status --live · ls · pwd · medium · github · clear',
+      whoami: 'Ab0L3TA // DFIR operator',
+      'cat focus.txt': 'DFIR / Incident Response / Challenge Authoring',
+      './status --live': "Logs don't lie. People do.",
+      status: "Logs don't lie. People do.",
+      ls: 'writeups/  challenge-authoring/  about/  evidence.log',
+      pwd: '/home/Ab0L3TA/casefiles',
+      medium: 'Opening the canonical Medium archive…',
+      github: 'Opening the source repository…'
+    };
+
+    const appendResponse = (command, result) => {
+      const entry = document.createElement('div');
+      entry.className = 'command-entry';
+
+      const commandLine = document.createElement('p');
+      commandLine.className = 'console-command';
+      commandLine.textContent = `└─$ ${command}`;
+
+      const resultLine = document.createElement('p');
+      resultLine.className = 'command-response';
+      resultLine.textContent = result;
+
+      entry.append(commandLine, resultLine);
+      output.append(entry);
+      terminal.scrollTop = terminal.scrollHeight;
+    };
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+
+      const command = input.value.trim().toLowerCase();
+      if (!command) return;
+
+      if (command === 'clear') {
+        output.replaceChildren();
+        input.value = '';
+        return;
+      }
+
+      appendResponse(command, commands[command] || `command not found: ${command}. Try help.`);
+      input.value = '';
+
+      if (command === 'medium') {
+        window.setTimeout(() => window.open('https://medium.com/@MAb0EL3TA', '_blank', 'noopener'), 250);
+      } else if (command === 'github') {
+        window.setTimeout(() => window.open('https://github.com/Mhm0ud-Ab0l3ta', '_blank', 'noopener'), 250);
+      }
+    });
+  })();
+</script>
