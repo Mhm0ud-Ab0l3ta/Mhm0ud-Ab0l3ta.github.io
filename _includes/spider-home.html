@@ -1,7 +1,6 @@
 <script>
   (() => {
     const hero = document.querySelector('.spider-hero');
-    const sigil = document.querySelector('.spider-sigil');
     const terminal = document.getElementById('operator-console');
     const input = document.getElementById('console-command');
     const output = document.getElementById('console-output');
@@ -31,13 +30,6 @@
         window.setTimeout(typeNext, 450);
       }
     }
-
-    sigil?.addEventListener('click', () => {
-      hero.classList.remove('sense-active');
-      void hero.offsetWidth;
-      hero.classList.add('sense-active');
-      window.setTimeout(() => hero.classList.remove('sense-active'), 1100);
-    });
 
     const commands = {
       help: 'Available: whoami · ls · pwd · medium · github · clear',
