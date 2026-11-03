@@ -167,7 +167,11 @@ body:has(.spider-hero) #panel-wrapper {
   text-shadow: 3px 0 rgba(239, 35, 77, 0.5), -2px 0 rgba(72, 216, 255, 0.42);
 }
 
-.hero-cursor { color: var(--spider-red); animation: cursor-blink 1s steps(1) infinite; }
+.hero-cursor {
+  color: #2563eb;
+  text-shadow: 0 0 9px rgba(37, 99, 235, 0.7);
+  animation: cursor-blink 1s steps(1) infinite;
+}
 
 .hero-lede {
   max-width: 33rem;
