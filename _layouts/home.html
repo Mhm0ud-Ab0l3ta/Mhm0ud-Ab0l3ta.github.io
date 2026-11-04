@@ -1,13 +1,13 @@
 ---
 layout: default
 script_includes:
-  - obsidian-home
+  - spider-home
 ---
 
 {% include lang.html %}
 
 {% if page.authoring_only %}
-  <article class="px-1 authoring-intro">
+  <article class="px-1">
     <h1 class="dynamic-title">{{ page.title }}</h1>
     {{ content }}
   </article>
@@ -52,77 +52,16 @@ script_includes:
 {% endif %}
 
 {% unless page.authoring_only %}
-  <section class="spider-hero obsidian-hero" aria-labelledby="operator-title">
-    <div class="gothic-architecture" aria-hidden="true">
-      <svg viewBox="0 0 1320 520" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <radialGradient id="roseGlow" cx="50%" cy="48%" r="58%">
-            <stop offset="0" stop-color="#bd3157" stop-opacity=".32"/>
-            <stop offset=".52" stop-color="#771a39" stop-opacity=".13"/>
-            <stop offset="1" stop-color="#08090d" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="lancetGlow" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#c53c61" stop-opacity=".08"/>
-            <stop offset=".55" stop-color="#a31f49" stop-opacity=".28"/>
-            <stop offset="1" stop-color="#4d1029" stop-opacity=".04"/>
-          </linearGradient>
-        </defs>
-
-        <ellipse class="window-aura" cx="672" cy="255" rx="238" ry="286" fill="url(#roseGlow)"/>
-
-        <g class="cathedral-shell">
-          <path d="M525 487V224C525 112 591 37 672 23c81 14 147 89 147 201v263"/>
-          <path d="M555 487V230c0-88 49-149 117-168 68 19 117 80 117 168v257"/>
-          <path d="M585 487V235c0-63 35-111 87-134 52 23 87 71 87 134v252"/>
-          <path d="M525 269h294M555 269h234M585 269h174M525 390h294M555 390h234"/>
-          <path d="M672 23v464M525 224l147-201 147 201M555 230 672 62l117 168M585 235l87-134 87 134"/>
-        </g>
-
-        <g class="lancet-glass">
-          <path d="M603 252v-24c0-48 25-86 58-105v129Z"/>
-          <path d="M683 252V123c33 19 58 57 58 105v24Z"/>
-          <path d="M603 282h58v91h-58zM683 282h58v91h-58z"/>
-          <path d="M603 403h58v84h-58zM683 403h58v84h-58z"/>
-        </g>
-
-        <g class="rose-window">
-          <circle cx="672" cy="271" r="58"/>
-          <circle cx="672" cy="271" r="19"/>
-          <path d="M672 213v116M614 271h116M631 230l82 82M713 230l-82 82"/>
-          <path d="m672 213 14 39 44 19-44 18-14 40-15-40-43-18 43-19Z"/>
-        </g>
-
-        <g class="forensic-diagram">
-          <circle cx="510" cy="342" r="98"/>
-          <circle cx="510" cy="342" r="57"/>
-          <circle cx="510" cy="342" r="8"/>
-          <path d="M390 342h240M510 222v240M426 258l168 168M594 258 426 426"/>
-          <path d="M510 244a98 98 0 0 1 86 51M608 342a98 98 0 0 1-37 77"/>
-          <circle cx="861" cy="162" r="72"/>
-          <circle cx="861" cy="162" r="28"/>
-          <path d="M773 162h176M861 74v176"/>
-        </g>
-
-        <g class="architectural-detail">
-          <path d="M15 474h310M995 58h310M1034 449h271"/>
-          <path d="M72 0v108M1240 360v160M295 440v80"/>
-          <path d="M24 34h122M1175 490h130"/>
-        </g>
-      </svg>
-    </div>
-    <div class="forensic-radar" aria-hidden="true">
-      <i></i><i></i><i></i><i></i>
-    </div>
-    <div class="targeting-lines" aria-hidden="true"><span></span><span></span></div>
-
-    <div class="spider-identity hero-copy">
-      <p class="eyebrow hero-kicker"><span></span> DFIR / INCIDENT RESPONSE / FORENSICS</p>
-      <h1 id="operator-title">Ab0L3TA</h1>
-      <p class="hero-headline">Tracing artifacts. Reconstructing truth.</p>
-      <p class="hero-lede">DFIR case files, technical write-ups, and investigation notes on digital evidence, incident response, and threat analysis.</p>
+  <section class="spider-hero" aria-labelledby="operator-title">
+    <div class="spider-web spider-web-one" aria-hidden="true"></div>
+    <div class="spider-web spider-web-two" aria-hidden="true"></div>
+    <div class="spider-identity">
+      <p class="eyebrow"><span class="status-dot"></span> DFIR // FIELD CONSOLE</p>
+      <h1 id="operator-title">Ab0L3TA<span class="hero-cursor" aria-hidden="true">_</span></h1>
+      <p class="hero-lede">Tracing artifacts. Reconstructing timelines. Writing down what the evidence proves.</p>
       <div class="hero-actions">
-        <a class="hero-action primary" href="#case-files">Explore Case Files <span aria-hidden="true">→</span></a>
-        <a class="hero-action secondary" href="{{ '/about/' | relative_url }}">About the Operator</a>
+        <a class="hero-action primary" href="#case-files">Explore case files <span aria-hidden="true">↘</span></a>
+        <a class="hero-action" href="{{ '/about/' | relative_url }}">About the operator</a>
       </div>
       <div class="signal-strip" aria-label="Areas of focus">
         <span>DFIR</span><span>CTF</span><span>FORENSICS</span><span>OSINT</span>
@@ -132,115 +71,119 @@ script_includes:
     <div class="kali-console" aria-label="Interactive Kali-style terminal">
       <div class="console-bar">
         <div class="console-lights" aria-hidden="true"><i></i><i></i><i></i></div>
-        <span class="console-title">Ab0L3TA@kali: ~/casefiles</span>
-        <span class="console-live"><i aria-hidden="true"></i> LIVE</span>
+        <span>Ab0L3TA@kali: ~/casefiles</span>
+        <span class="console-live">LIVE</span>
       </div>
-      <div class="console-body" id="operator-console">
+      <div class="console-body" id="operator-console" aria-live="polite">
         <p class="console-prompt"><span>┌──(</span><b>Ab0L3TA㉿kali</b><span>)-[</span><em>~/casefiles</em><span>]</span></p>
-        <p class="console-command"><span class="prompt-mark">└─$</span> whoami</p>
-        <p class="console-result">Ab0L3TA <small>// DFIR operator</small></p>
-        <p class="console-command"><span class="prompt-mark">└─$</span> cat focus.txt</p>
+        <p><span class="prompt-mark">└─$</span> whoami</p>
+        <p class="console-result">Ab0L3TA <small>// digital forensics operator</small></p>
+        <p><span class="prompt-mark">└─$</span> cat focus.txt</p>
         <p class="console-result">DFIR / Incident Response / Challenge Authoring</p>
-        <p class="console-command"><span class="prompt-mark">└─$</span> ./status --live</p>
+        <p><span class="prompt-mark">└─$</span> ./status --live</p>
         <p class="console-result status-line" data-terminal-text="Logs don't lie. People do.">Logs don't lie. People do.</p>
-        <p class="console-command"><span class="prompt-mark">└─$</span> help</p>
-        <p class="console-result console-help">whoami · ls · pwd · medium · github · clear</p>
         <div class="console-command-row">
-          <label for="console-command" aria-label="Terminal prompt"><span class="prompt-mark">└─$</span></label>
-          <input id="console-command" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="type a command" aria-label="Terminal command" aria-describedby="console-hint">
+          <label for="console-command"><span class="prompt-mark">└─$</span><span class="visually-hidden">Terminal command</span></label>
+          <input id="console-command" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="type help, whoami, ls, or clear" aria-describedby="console-hint">
         </div>
-        <p id="console-hint" class="console-hint">Press Enter to run a command.</p>
-        <div id="console-output" class="console-output" aria-live="polite"></div>
+        <p id="console-hint" class="console-hint">Interactive console — press Enter to run a command.</p>
+        <div id="console-output" class="console-output"></div>
       </div>
     </div>
   </section>
+
+  <div class="case-files-heading" id="case-files">
+    <div>
+      <p class="eyebrow">INDEX // 01</p>
+      <h2>Case files</h2>
+    </div>
+    <span>{{ site.posts | size }} entries indexed</span>
+  </div>
 {% endunless %}
 
-<section class="case-files-section{% if page.authoring_only %} authoring-case-files{% endif %}" id="case-files" aria-labelledby="case-files-title">
-  {% unless page.authoring_only %}
-    <header class="case-files-heading">
-      <div>
-        <p class="eyebrow">CASE INDEX / {{ site.posts | size | prepend: '0' | slice: -2, 2 }}</p>
-        <h2 id="case-files-title">Recent Case Files</h2>
-        <p>Latest investigations, analyses, and technical write-ups.</p>
-      </div>
-      <a class="view-all-link" href="{{ '/archives/' | relative_url }}">View All <span aria-hidden="true">→</span></a>
-    </header>
-  {% endunless %}
+<div id="post-list" class="flex-grow-1 px-xl-1">
+  {% for post in posts %}
+    <article class="card-wrapper card">
+      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+        {% assign card_body_col = '12' %}
 
-  <div id="post-list" class="case-file-grid">
-    {% for post in posts %}
-      <article class="card-wrapper card case-file-card">
-        <a href="{{ post.url | relative_url }}" class="post-preview case-card-link">
-          {% assign lqip_attr = nil %}
-          {% if post.image %}
-            {% assign src = post.image.path | default: post.image %}
+        {% if post.image %}
+          {% assign src = post.image.path | default: post.image %}
+
+          {% if post.media_subpath %}
+            {% unless src contains '://' %}
+              {% assign src = post.media_subpath
+                | append: '/'
+                | append: src
+                | replace: '///', '/'
+                | replace: '//', '/'
+              %}
+            {% endunless %}
+          {% endif %}
+
+          {% if post.image.lqip %}
+            {% assign lqip = post.image.lqip %}
 
             {% if post.media_subpath %}
-              {% unless src contains '://' %}
-                {% assign src = post.media_subpath
+              {% unless lqip contains 'data:' %}
+                {% assign lqip = post.media_subpath
                   | append: '/'
-                  | append: src
+                  | append: lqip
                   | replace: '///', '/'
                   | replace: '//', '/'
                 %}
               {% endunless %}
             {% endif %}
 
-            {% if post.image.lqip %}
-              {% assign lqip = post.image.lqip %}
-              {% if post.media_subpath %}
-                {% unless lqip contains 'data:' %}
-                  {% assign lqip = post.media_subpath
-                    | append: '/'
-                    | append: lqip
-                    | replace: '///', '/'
-                    | replace: '//', '/'
-                  %}
-                {% endunless %}
-              {% endif %}
-              {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
-            {% endif %}
-
-            {% assign alt = post.image.alt | xml_escape | default: post.title %}
-            <div class="case-file-visual has-image">
-              <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }} loading="lazy">
-              <span class="visual-scanline" aria-hidden="true"></span>
-            </div>
-          {% else %}
-            <div class="case-file-visual forensic-abstract" aria-hidden="true">
-              <span class="abstract-grid"></span>
-              <span class="abstract-ring"></span>
-              <span class="abstract-crosshair"></span>
-              <b>0{{ forloop.index }}</b>
-            </div>
+            {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
           {% endif %}
 
-          <div class="card-body">
-            <div class="case-card-topline">
-              <span class="case-category">{{ post.categories | first | default: 'case-file' | upcase }}</span>
-              {% if post.pin %}<span class="case-pin"><i class="fas fa-thumbtack fa-fw"></i> PINNED</span>{% endif %}
+          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+
+          <div class="col-md-5">
+            <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
+          </div>
+
+          {% assign card_body_col = '7' %}
+        {% endif %}
+
+        <div class="col-md-{{ card_body_col }}">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>{% include post-summary.html %}</p>
             </div>
 
-            <h3 class="card-title">{{ post.title }}</h3>
-            <p class="case-excerpt">{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 175 }}</p>
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <i class="far fa-calendar fa-fw me-1"></i>
+                {% include datetime.html date=post.date lang=lang %}
 
-            <div class="case-card-footer">
-              <span><i class="far fa-calendar fa-fw" aria-hidden="true"></i> {% include datetime.html date=post.date lang=lang %}</span>
-              {% if post.tags.size > 0 %}
-                <span class="case-tags" aria-label="Tags">
-                  {% for tag in post.tags limit: 2 %}<span>{{ tag }}</span>{% endfor %}
-                </span>
-              {% else %}
-                <span class="case-open" aria-hidden="true">OPEN FILE ↗</span>
+                {% if post.categories.size > 0 %}
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    {% for category in post.categories %}
+                      {{ category }}
+                      {%- unless forloop.last -%},{%- endunless -%}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </div>
+
+              {% if post.pin %}
+                <div class="pin ms-1">
+                  <i class="fas fa-thumbtack fa-fw"></i>
+                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+                </div>
               {% endif %}
             </div>
           </div>
-        </a>
-      </article>
-    {% endfor %}
-  </div>
-</section>
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+</div>
 
 {% unless page.authoring_only %}
   {% if paginator.total_pages > 1 %}
